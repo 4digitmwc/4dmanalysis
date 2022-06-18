@@ -36,9 +36,7 @@
 
 - [ ] Analysis
 
-  - [ ] Analysis of Qualifiers Scores
-    - [ ] Logistic Regression (@poly)
-    - [ ] Overall Conclusion
+  - [ ] Outlier Detection Analysis
 
 - [ ] Questionnaire
 
@@ -65,6 +63,8 @@
     - Applying L1 and L2 Regularization (Lasso, Ridge)
   - [ ] Qualifiers Analysis
     - [x] Survival Analysis
+    - [x] Logistic Regression (@poly)
+    - [x] Overall Conclusion
 
 - [ ] Questionnaire
 
