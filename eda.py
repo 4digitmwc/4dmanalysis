@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from dataset import Dataset
+from utils import Dataset
 from utils import two_means_t_test, two_variances_f_test
 from scipy.stats import t
-from constants import interested_beatmap_type, interested_rounds
+from utils.constants import *
 
 _4DM_Dataset = Dataset("4dm4.db")
 imputed_4dm = Dataset("4dm4_impute.db")

@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.feature_selection import f_regression
-from dataset import Dataset
-from models import LinearRegression, Ridge, Lasso, PolynomialRegression, PolyRidge, PolyLasso
-from models import LogisticCurveFitting
-from constants import *
+from utils import Dataset
+from utils.regression_models import LinearRegression, Ridge, Lasso, PolynomialRegression, PolyRidge, PolyLasso
+from utils.regression_models import LogisticCurveFitting
+from utils.constants import *
 from utils import generate_list_functions_from_generator_functions
 from scipy.stats import shapiro
 

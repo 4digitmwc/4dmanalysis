@@ -2,7 +2,7 @@ import sqlite3
 import numpy as np
 import pandas as pd
 from sklearn.impute import KNNImputer
-from dataset import Dataset
+from utils import Dataset
 from utils import csv_to_sql
 
 interested_rounds = ["Q", "RO32", "RO16", "QF", "SF", "F", "GF"]

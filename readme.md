@@ -88,7 +88,7 @@ There is a `Dataset` class inside the `dataset.py` file. Which is made to deal w
 The `Dataset` class can be initialized using the sqlite `.db` file
 
 ```python {all|2|1-6|9|all}
-from dataset import Dataset
+from utils import Dataset
 
 _4dm4 = Dataset('4dm4.db')
 ```
@@ -153,7 +153,7 @@ HowToPLayLN is bad at naming things. However this method will output the `pd.Dat
 **Example**
 
 ```python {all|2|1-6|9|all}
-from dataset import Dataset
+from utils import Dataset
 
 _4dm4 = Dataset('4dm4.db')
 

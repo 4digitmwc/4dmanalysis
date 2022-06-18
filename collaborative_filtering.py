@@ -1,7 +1,7 @@
 import sqlite3
 import numpy as np
 import pandas as pd
-from dataset import Dataset
+from utils.dataset import Dataset
 from utils import CollaborativeFiltering
 from utils import csv_to_sql
 
