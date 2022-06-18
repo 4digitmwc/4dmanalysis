@@ -7,21 +7,21 @@ def max_(a, b):
 
 class LOF():
     def __init__(self, k, metric=euclidean):
-        self.metric = metric
+        self.metric = np.vectorize(metric, signature="(n), (m,n) -> (m)")
         self.k = k
     
     def nearest_neighbors(self, data_points):
-        distances = []
-        for A in data_points:
-            d = []
-            for B in data_points:
-                d.append(self.metric(A, B))
-            distances.append(d)
-        
-        distances = np.array(distances)
-        nn = np.argsort(distances, axis=1)[:, 1:(self.k + 1)]
-
-        return nn, np.sort(distances, axis=1)[:, 1:(self.k + 1)]
+        distances = self.metric(data_points, data_points)
+        nn_dist = np.sort(distances, axis=1)
+        nn = np.argsort(distances, axis=1)
+        nn_dist = nn_dist[:, 1:]; nn = nn[:, 1:]
+        nn_dist[nn_dist == 0] = np.mean(nn_dist)
+        nn_dist_actual = np.sort(nn_dist, axis=1)[:, :self.k]
+        def idx(a, b):
+            return a[b]
+        idx = np.vectorize(idx, signature="(n), (m) -> (m)")
+        nn_actual = idx(nn, np.argsort(nn_dist, axis=1))[:, :self.k]
+        return nn_actual, nn_dist_actual
     
     def _lrd(self, data_points, x):
         data_points = np.concatenate((data_points, [x]))
@@ -35,8 +35,8 @@ class LOF():
     
     def _lof(self, data_points, x):
         data_points = np.concatenate((data_points, [x]))
-        lrd_x = self._lrd(data_points, x)
         nn, nn_dist = self.nearest_neighbors(data_points)
+        lrd_x = self._lrd(data_points, x)
         x_nn = nn[-1, :]
         lrd_nn_sum = 0
         for idx_nn in x_nn:
