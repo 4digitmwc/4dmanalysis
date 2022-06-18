@@ -7,18 +7,11 @@ def max_(a, b):
 
 class LOF():
     def __init__(self, k, metric=euclidean):
-        self.metric = metric
+        self.metric = np.vectorize(metric, signature="(n), (m,n) -> (m)")
         self.k = k
     
     def nearest_neighbors(self, data_points):
-        distances = []
-        for A in data_points:
-            d = []
-            for B in data_points:
-                d.append(self.metric(A, B))
-            distances.append(d)
-        
-        distances = np.array(distances)
+        distances = self.metric(data_points, data_points)
         nn = np.argsort(distances, axis=1)[:, 1:(self.k + 1)]
 
         return nn, np.sort(distances, axis=1)[:, 1:(self.k + 1)]
@@ -35,8 +28,8 @@ class LOF():
     
     def _lof(self, data_points, x):
         data_points = np.concatenate((data_points, [x]))
-        lrd_x = self._lrd(data_points, x)
         nn, nn_dist = self.nearest_neighbors(data_points)
+        lrd_x = self._lrd(data_points, x)
         x_nn = nn[-1, :]
         lrd_nn_sum = 0
         for idx_nn in x_nn:
