@@ -61,7 +61,7 @@
     - Linear Regression
     - Polynomial Regression Degree 2 and 3
     - Applying L1 and L2 Regularization (Lasso, Ridge)
-  - [ ] Qualifiers Analysis
+  - [x] Qualifiers Analysis
     - [x] Survival Analysis
     - [x] Logistic Regression (@poly)
     - [x] Overall Conclusion
