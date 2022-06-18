@@ -12,9 +12,16 @@ class LOF():
     
     def nearest_neighbors(self, data_points):
         distances = self.metric(data_points, data_points)
-        nn = np.argsort(distances, axis=1)[:, 1:(self.k + 1)]
-
-        return nn, np.sort(distances, axis=1)[:, 1:(self.k + 1)]
+        nn_dist = np.sort(distances, axis=1)
+        nn = np.argsort(distances, axis=1)
+        nn_dist = nn_dist[:, 1:]; nn = nn[:, 1:]
+        nn_dist[nn_dist == 0] = np.mean(nn_dist)
+        nn_dist_actual = np.sort(nn_dist, axis=1)[:, :self.k]
+        def idx(a, b):
+            return a[b]
+        idx = np.vectorize(idx, signature="(n), (m) -> (m)")
+        nn_actual = idx(nn, np.argsort(nn_dist, axis=1))[:, :self.k]
+        return nn_actual, nn_dist_actual
     
     def _lrd(self, data_points, x):
         data_points = np.concatenate((data_points, [x]))
