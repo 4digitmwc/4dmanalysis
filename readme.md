@@ -2,7 +2,13 @@
 
 ## Project Description
 
-This is a project for analysis of [4 Digit MWC 4](https://osu.ppy.sh/wiki/en/Tournaments/4DM/4) Player Scores from Qualifiers to Grand Finals. This will include the Exploratory Data Analysis, Predicting the missing scores and Outlier Detection (or in other words, `Skillbanning`).
+This is a project for analysis of [4 Digit MWC 4](https://osu.ppy.sh/wiki/en/Tournaments/4DM/4) Player Scores from Qualifiers to Grand Finals. This will include the Exploratory Data Analysis, Predicting the missing scores, and Outlier Detection (or in other words, `Skillbanning`).
+
+- Exploratory Data Analysis of Score Progression of players
+- Missing Data Validation of unplayed scores of players
+- Analysis on affection of Qualifiers Scores to Round Survival of Teams
+- Experimentation of Box-Cox and Logit Transformation on players' scores
+- Outlier Detection of 4 Digit MWC 4 Players using Tournament Scores
 
 ---
 
@@ -26,25 +32,46 @@ This project will soon expand to ranked and loved maps but after we finish the a
 
 ---
 
-## Methodology
+## Analysis
 
-### Exploratory Data Analysis
+### Exploratory Data Analysis of Score Progression of players
 
-TBA
+This section of analysis will go over Exploratory Data Analysis, including **Confidence Interval**, **Linear Regression** and **Various Parametric Models** over **scores** and **rounds**. The Exploratory Data Analysis Code is divided into 2 parts.
 
-### Outlier Detection Model
+- Basic Exploratory Analysis and Confidence Interval in [eda.py](https://github.com/HowToProgramming/4dm4analysis/blob/main/eda.py)
+- Linear and Polynomial Regression Analysis of Players Scores in [regression.py](https://github.com/HowToProgramming/4dm4analysis/blob/main/regression.py)
 
-TBA
+and the Documentation of Linear and Polynomial Regression Analysis of Players Scores in [journal/regression_analysis.md](https://github.com/HowToProgramming/4dm4analysis/blob/main/journal/regression_analysis.md)
 
-### Model Evaluation
+### Missing Data Validation of unplayed scores of players
 
-TBA
+This section of analysis will go over Missing Data Imputation using various methods, for example **Collaborative Filtering** and **KNN Imputation**
 
-#### Hand-Picking Outliers
+The Code of **KNN Imputation** can be found in [knnimpute.py](https://github.com/HowToProgramming/4dm4analysis/blob/main/knnimpute.py) and **Collaborative Filtering** code can be found in [collaborative_filtering.py](https://github.com/HowToProgramming/4dm4analysis/blob/main/collaborative_filtering.py).
 
-TBA
+The documentation of this analysis can be found in [journal/missing_data_validation.md](https://github.com/HowToProgramming/4dm4analysis/blob/main/journal/missing_data_validation.md).
 
-#### Evaluation Metric
+### Analysis on affection of Qualifiers Scores to Round Survival of Teams
+
+This section of analysis will go over analysis of Qualifiers Scores over Team Survivals. We introduce two approaches to proceed the analysis. **Logistic Regression** and **Survival Analysis Models**
+
+- **Logistic Regression** code and documentation can be found in [survival_log.ipynb](https://github.com/HowToProgramming/4dm4analysis/blob/main/survival_log.ipynb)
+
+- **Survival Analysis** code and documentation can be found in [survival.ipynb](https://github.com/HowToProgramming/4dm4analysis/blob/main/survival.ipynb)
+
+### Experimentation of Box-Cox and Logit Transformation on players' scores
+
+This section of analysis will go over the experiment on **Box-Cox Transformation** in order to make our data Normally Distributed
+
+- **Box-Cox Transformation** experimentation Notebook can be found in [boxcox.ipynb](https://github.com/HowToProgramming/4dm4analysis/blob/main/boxcox.ipynb)
+
+### Outlier Detection of 4 Digit MWC 4 Players using Tournament Scores
+
+This section of analysis will go over finding the robust model to **Skillban** the outperformers (Derankers) in rank-restricted tournament with the sample data being **4 digit mwc 4 scores** from official Multiplayer Links.
+
+- **Outlier Detection Analysis** Notebook with Documentation can be found in [outlier_detection.ipynb](https://github.com/HowToProgramming/4dm4analysis/blob/main/outlier_detection.ipynb)
+
+## Model Evaluation
 
 <div align="center"><em>"Even if statistical skillban is possible, there will still be the outliers"</em></div>
 
@@ -70,10 +97,6 @@ However, we need to consider the `False Positive Rate` and `False Negative Rate`
 - False Negative Rate : The possibility of model prediction is not an outlier where the hand-picked does not agree
 
 The model with High `F1 Score` and satisfying `False Positive Rate` and `False Negative Rate` will be considered as a suitable model to detect the outliers.
-
-#### Testing
-
-TBA
 
 ---
 
@@ -324,12 +347,6 @@ The actual 4dm4 data (both players and teams) are collected in `4dm4.db` which c
 - `beatmap_tag` Tag of a beatmap (this attribute is used to distinguish between each map in the same beatmap category)
 - `score` score of the team recorded in the matches
 - `score_logit` logit of score of the team recorded in the matches
-
----
-
-## Current Problems / Challenges
-
-TBA
 
 ---
 
