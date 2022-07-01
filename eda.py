@@ -5,6 +5,8 @@ from utils import Dataset
 from utils import two_means_t_test, two_variances_f_test
 from scipy.stats import t
 from utils.constants import *
+import utils
+
 
 _4DM_Dataset = Dataset("4dm4.db")
 imputed_4dm = Dataset("4dm4_impute.db")

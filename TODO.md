@@ -24,6 +24,7 @@
     - [ ] Moving analysis to `.ipynb` if possible (Engineering part is still `.py`)
     - [ ] Interpreting the Results of Outlier Models
     - [ ] Cleaning TODO.md
+    - [ ] Cleaning `utils/`
 
 ### In-Progress
 
