@@ -4,13 +4,11 @@
 
 - [ ] Data Cleaning / Engineering
 
-  - Nothing to do now
+  - [ ] Pulling and Reformatting 4dm3 Data into SQLite Database
+  - [ ] Cleaning Ranked Plays dataset
 
 - [ ] Analysis
 
-  - [ ] More EDA if possible
-  - [ ] Find Outlier Detection Models
-  - [ ] Perform Outlier Detection
   - [ ] Evaluate Models
 
 - [ ] Questionnaire
@@ -24,9 +22,8 @@
 
   - [ ] Code Refactoring & Documentation
     - [ ] Moving analysis to `.ipynb` if possible (Engineering part is still `.py`)
-  - [ ] Major Questions
-  - [ ] Result
-  - [ ] Discussion
+    - [ ] Interpreting the Results of Outlier Models
+    - [ ] Cleaning TODO.md
 
 ### In-Progress
 
@@ -37,6 +34,8 @@
 - [ ] Analysis
 
   - [ ] Outlier Detection Analysis
+    - [x] Outlier Detection Analysis with Adjusted LOF
+    - [ ] Outlier Detection Analysis with Weighted Percent Models (both Parametric and Non-Parametric)
 
 - [ ] Questionnaire
 
@@ -80,6 +79,8 @@
       - Hypothesis Testing
       - Interpretation of Regression Analysis
       - More questions
+    - [x] Outlier Detection using LOF
+      - Model Interpretation
 
 ### External Questions for Further Research
 
