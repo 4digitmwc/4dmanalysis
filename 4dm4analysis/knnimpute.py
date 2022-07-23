@@ -1,3 +1,7 @@
+import os
+
+os.chdir("..")
+
 import sqlite3
 import numpy as np
 import pandas as pd
@@ -7,7 +11,7 @@ from utils import csv_to_sql
 
 interested_rounds = ["Q", "RO32", "RO16", "QF", "SF", "F", "GF"]
 interested_types = ["LN", "HB", "RC", "TB"]
-_4dm = Dataset("4dm4.db")
+_4dm = Dataset("datasets/4dm4.db")
 old_ds = _4dm.get_old_dataset(interested_rounds, interested_types, True)
 played = pd.notna(old_ds)
 mean = _4dm.query(

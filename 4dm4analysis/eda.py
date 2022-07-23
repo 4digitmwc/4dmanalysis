@@ -1,3 +1,7 @@
+import os
+
+os.chdir("..")
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -8,8 +12,8 @@ from utils.constants import *
 import utils
 
 
-_4DM_Dataset = Dataset("4dm4.db")
-imputed_4dm = Dataset("4dm4_impute.db")
+_4DM_Dataset = Dataset("datasets/4dm4.db")
+imputed_4dm = Dataset("datasets/4dm4_impute.db")
 PLAYER_NAMES = _4DM_Dataset.select("player_data", ["player_name"]).values.flatten()
 ROUNDS = _4DM_Dataset.query("SELECT DISTINCT round FROM scores").values.flatten()
 BEATMAP_TYPES = _4DM_Dataset.query(
