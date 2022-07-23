@@ -113,7 +113,7 @@ The `Dataset` class can be initialized using the sqlite `.db` file
 ```python {all|2|1-6|9|all}
 from utils import Dataset
 
-_4dm4 = Dataset('4dm4.db')
+_4dm4 = Dataset('datasets/4dm4.db')
 ```
 
 #### query
@@ -178,7 +178,7 @@ HowToPLayLN is bad at naming things. However this method will output the `pd.Dat
 ```python {all|2|1-6|9|all}
 from utils import Dataset
 
-_4dm4 = Dataset('4dm4.db')
+_4dm4 = Dataset('datasets/4dm4.db')
 
 interested_rounds = ["RO32", "RO16", "QF"]
 interested_beatmap_type = "RC"

@@ -7,7 +7,7 @@ from utils import csv_to_sql
 
 interested_rounds = ["Q", "RO32", "RO16", "QF", "SF", "F", "GF"]
 interested_types = ["LN", "HB", "RC", "TB"]
-_4dm_dataset = Dataset("4dm4.db")
+_4dm_dataset = Dataset("datasets/4dm4.db")
 csv_dataset = _4dm_dataset.get_old_dataset(interested_rounds, interested_types, True)
 played = pd.notna(csv_dataset)
 X = csv_dataset.values
