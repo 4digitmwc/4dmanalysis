@@ -1,3 +1,7 @@
+import os
+
+os.chdir("..")
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.feature_selection import f_regression
